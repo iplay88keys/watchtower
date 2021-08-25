@@ -1,0 +1,47 @@
+watches:
+  - name: "primary"
+    config:
+      paths:
+        - "."
+      recursive: true
+      exclusions:
+        - "vendor"
+        - ".idea"
+        - ".git"
+        - ".DS_Store"
+      events:
+        - "create"
+        - "remove"
+        - "write"
+    onTrigger:
+      - run:
+        - "pwd"
+        - "ls -la {{.Name}}"
+        - "for i in 1 2 3; do echo \"Run #${i}\"; sleep 1; done"
+        continueOnError: true
+      - restart: "frontend"
+      - restart: "backend"
+  - name: "secondary"
+    config:
+      paths:
+          - "."
+      recursive: true
+      exclusions:
+        - "vendor"
+        - ".idea"
+        - ".git"
+        - ".DS_STORE"
+      events:
+        - "create"
+        - "remove"
+        - "write"
+    onTrigger:
+      - run:
+          - "echo 'second'"
+processes:
+  - name: "frontend"
+    type: "task"
+    start: "echo 'starting frontend...'; echo 'success';"
+  - name: "backend"
+    type: "task"
+    start: "pwd"
