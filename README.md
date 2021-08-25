@@ -25,8 +25,21 @@ From within the cloned repo:
 
 An example config file can be found in the [example config file](example.yml)
 
-## Config``
+## Config
 The config file provides all the information that Watchtower needs in order to run.
+
+The config file is defined as:
+```yaml
+watches:
+  - # ...
+# - Required
+# - List of watches to set up
+
+processes:
+  - # ...
+# - Optional
+# - List of processes to run
+```
 
 ### Watches
 Watches define what needs to change in order for triggers to run.
