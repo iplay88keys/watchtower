@@ -1,5 +1,5 @@
 # Watchtower
-Watchtower handles running processes, watching various targets and running various commands when changes to those targets occur.
+Watchtower handles running processes, watching various targets and running commands when changes to those targets occur.
 
 Here's a basic example of what Watchtower can do:
 * On startup:
